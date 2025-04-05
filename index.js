@@ -22,7 +22,7 @@ async function generarDatos(ids) {
         LONGITUD: registro.lng, // Bien
         SENTIDO: registro.course || 0,
         VELOCIDAD: registro.speed || 0, // Bien
-        FH_DATO: registro.dt_tracker.toISOString(),
+        FH_DATO: registro.dt_tracker.toISOString(), // Bien
         PLACA: registro.placa || "ABC123", // Bien
         CANT_SATELITES: registro.sat || 0,
         HDOP: registro.hdop || 0,
@@ -101,7 +101,8 @@ async function enviarSOAP(ids) {
 
 // Ejemplo: Enviar datos para varias tablas
 const idsTablas = [
-  { placa: "AAX-816", imei: "358735075141837" }
+  { placa: "CAR-921", imei: "865784054739076" },
+  { placa: "F4P-710", imei: "351510090686752" }
 ];
 
 // Enviar cada 30 segundos
