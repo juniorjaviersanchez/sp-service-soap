@@ -10,6 +10,20 @@ const clave = process.env.SOAP_PASSWORD;
 
 const builder = new Builder({ headless: true });
 
+function formatearFecha(fecha) {
+  const f = new Date(fecha);
+
+  const yyyy = f.getFullYear();
+  const mm = String(f.getMonth() + 1).padStart(2, '0');
+  const dd = String(f.getDate()).padStart(2, '0');
+
+  const hh = String(f.getHours()).padStart(2, '0');
+  const min = String(f.getMinutes()).padStart(2, '0');
+  const ss = String(f.getSeconds()).padStart(2, '0');
+
+  return `${yyyy}${mm}${dd} ${hh}:${min}:${ss}`;
+}
+
 async function generarDatos(ids) {
   const registros = await obtenerUltimosRegistros(ids);  // Obtener los últimos registros de las tablas
 
@@ -22,7 +36,7 @@ async function generarDatos(ids) {
         LONGITUD: registro.lng, // Bien
         SENTIDO: registro.course || 0,
         VELOCIDAD: registro.speed || 0, // Bien
-        FH_DATO: registro.dt_tracker.toISOString(), // Bien
+        FH_DATO: formatearFecha(registro.dt_tracker),
         PLACA: registro.placa || "ABC123", // Bien
         CANT_SATELITES: registro.sat || 0,
         HDOP: registro.hdop || 0,
