@@ -116,7 +116,8 @@ async function enviarSOAP(ids) {
 // Ejemplo: Enviar datos para varias tablas
 const idsTablas = [
   { placa: "CAR-921", imei: "865784054739076" },
-  { placa: "F4P-710", imei: "351510090686752" }
+  { placa: "F4P-710", imei: "351510090686752" },
+  { placa: "VAD-871", imei: "867144061042246" }
 ];
 
 // Enviar cada 30 segundos
